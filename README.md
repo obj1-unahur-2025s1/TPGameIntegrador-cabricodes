@@ -2,7 +2,6 @@ MORETTI GAME
 
 ## Equipo de desarrollo
 
-* Nombres de los integrantes 
 * Thiago García 
 * Tomás Salgado 
 * Dante Sandoval 
