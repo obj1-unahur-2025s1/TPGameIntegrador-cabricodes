@@ -1,0 +1,26 @@
+import wollok.game.*
+import morettiGame.*
+import imagenes.*
+
+program morettiGame {
+	game.title("Moretti y los dolares")
+	game.height(100)
+	game.width(150)
+	game.addVisual(pantallaDeInicio)
+	game.addVisual(tutorial)
+	game.addVisual(volumen)
+	game.addVisual(dificultad2)
+	game.boardGround("canchita2.png")
+	game.cellSize(50)
+	juego.teclado()
+	game.start()
+	juego.terminarJuego()
+
+	game.onCollideDo(moretti, {
+
+		elemento => elemento.serRecogido()
+					elemento.sonidoRecoleccion()
+					game.say(moretti, elemento.cantidadQueDa())
+	})
+}
+
