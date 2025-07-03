@@ -26,15 +26,17 @@ MORETTI GAME
 
 Pero cuidado, ya que como caen billetes, también caen cámaras, lo cual restan 500 puntos a nuestro querido Moretti.
 
+**Con la tecla "Enter" inicia el juego"**
 **los controles, son las flechas, para mover a nuestro personaje, hacia arriba, abajo, izquierda y derecha.**
 **Con la tecla "M"" podemos mutear la musica de fondo.**
 **Con la tecla "N" podemos desmutear la musica de fondo**
 
 
 
+
 ## Otros
 
-- Curso/Facultad comision 4 - jueves 
+- Curso/Facultad Programación con Objetos 1, Primer cuatrimestre 2025, comisión 1
 - Versión de wollok: 0.3.1
 - Una vez terminado, no tenemos problemas en que el repositorio sea público 
 
