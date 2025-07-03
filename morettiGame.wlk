@@ -201,7 +201,7 @@ object moretti {
     }
 
     method izquierda() {
-      position = position.left(1)
+      position = position.left(3)
     }
 
     method bajar(){
@@ -213,7 +213,7 @@ object moretti {
       dinero += unFajo.cantidadQueDa().min(25000)
     }
     method image() = "morettito.png" 
-    method comentario() = game.say(self, dinero.toString())
+
 
     method ganar(){
       return dinero == 25000
