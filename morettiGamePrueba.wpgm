@@ -20,7 +20,29 @@ program morettiGame {
 
 		elemento => elemento.serRecogido()
 					elemento.sonidoRecoleccion()
-					game.say(moretti, elemento.cantidadQueDa())
+	})
+
+	game.onCollideDo(invisible, {
+
+		elemento => elemento.serRecogido()
+					elemento.sonidoRecoleccion()
+	})
+
+	game.onCollideDo(invisible2, {
+
+		elemento => elemento.serRecogido()
+					elemento.sonidoRecoleccion()
+	})
+
+	game.onCollideDo(invisible3, {
+
+		elemento => elemento.serRecogido()
+					elemento.sonidoRecoleccion()
+	})
+
+	game.onCollideDo(invisible4, {
+
+		elemento => elemento.serRecogido()
+					elemento.sonidoRecoleccion()
 	})
 }
-

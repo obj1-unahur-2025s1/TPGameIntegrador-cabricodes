@@ -5,7 +5,7 @@ import imagenes.*
 
 
 
-object dificultadNormal{
+object dificultadFacil{
 
   method camarasRatio(){
      game.onTick(4000, "lluvia", {juego.agregarCamaraDeVideoAVelocidad(600)})
@@ -35,7 +35,7 @@ object dificultadDificil{
 
 object juego {
 
-  var dificultad = dificultadNormal
+  var dificultad = dificultadFacil
 
   method teclado() {
     keyboard.enter().onPressDo({ self.iniciar() })
@@ -44,7 +44,7 @@ object juego {
     keyboard.right().onPressDo({moretti.derecha()})
     keyboard.left().onPressDo({moretti.izquierda()})
     keyboard.down().onPressDo({moretti.bajar()})
-    keyboard.num1().onPressDo({self.ponerDificultadNormal()})
+    keyboard.num1().onPressDo({self.ponerDificultadFacil()})
     keyboard.num2().onPressDo({self.ponerDificultadDificil()})
     
   }
@@ -66,6 +66,10 @@ object juego {
     game.removeVisual(tutorial)
     game.removeVisual(dificultad2)
     game.addVisualCharacter(moretti)
+    game.addVisual(invisible)
+    game.addVisual(invisible2)
+    game.addVisual(invisible3)
+    game.addVisual(invisible4)
     game.addVisual(contador)
     dificultad.billetesRatio()
     dificultad.camarasRatio()
@@ -108,8 +112,8 @@ object juego {
     }
   }
 
-  method ponerDificultadNormal(){
-    dificultad = dificultadNormal
+  method ponerDificultadFacil(){
+    dificultad = dificultadFacil
   }
 
   method ponerDificultadDificil(){
@@ -213,7 +217,7 @@ object moretti {
       dinero += unFajo.cantidadQueDa().min(25000)
     }
     method image() = "morettito.png" 
-
+    method comentario() = game.say(self, dinero.toString())
 
     method ganar(){
       return dinero == 25000
@@ -221,3 +225,31 @@ object moretti {
 }
 
 
+object invisible{
+
+  method position(){
+    return moretti.position().right(1)
+  } 
+}
+
+
+object invisible2{
+
+  method position(){
+  return moretti.position().left(1)
+  } 
+}
+
+object invisible3{
+
+  method position(){
+    return moretti.position().right(2)
+  } 
+}
+
+object invisible4{
+
+  method position(){
+    return moretti.position().left(2)
+  } 
+}
