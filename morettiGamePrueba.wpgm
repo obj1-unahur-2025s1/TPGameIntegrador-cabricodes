@@ -17,31 +17,26 @@ program morettiGame {
 	juego.terminarJuego()
 
 	game.onCollideDo(moretti, {
-
 		elemento => elemento.serRecogido()
 					elemento.sonidoRecoleccion()
 	})
 
 	game.onCollideDo(invisible, {
-
 		elemento => elemento.serRecogido()
 					elemento.sonidoRecoleccion()
 	})
 
 	game.onCollideDo(invisible2, {
-
 		elemento => elemento.serRecogido()
 					elemento.sonidoRecoleccion()
 	})
 
 	game.onCollideDo(invisible3, {
-
 		elemento => elemento.serRecogido()
 					elemento.sonidoRecoleccion()
 	})
 
 	game.onCollideDo(invisible4, {
-
 		elemento => elemento.serRecogido()
 					elemento.sonidoRecoleccion()
 	})

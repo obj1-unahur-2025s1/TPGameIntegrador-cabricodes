@@ -1,41 +1,35 @@
 import wollok.game.*
 import imagenes.*
-
-
-
+import objetosConGravedad.*
 
 
 object dificultadFacil{
-
   method camarasRatio(){
-     game.onTick(4000, "lluvia", {juego.agregarCamaraDeVideoAVelocidad(600)})
+    juego.empezarLluviaDeCamaras(600)
   }
-
   method billetesRatio(){
-    game.onTick(2500, "lluvia", {juego.agregarFajoDeDineroAVelocidad(1000)})
-    game.onTick(8000, "lluvia", {juego.agregarFajoDoradoAVelocidad(400)})
+    juego.empezarLluviaDeDinero(2500, 8000)
   }
 }
 
 object dificultadDificil{
-
   method camarasRatio(){
-     game.onTick(1000, "lluvia", {juego.agregarCamaraDeVideoAVelocidad(200)})
+    juego.empezarLluviaDeCamaras(200)
   }
-
   method billetesRatio(){
-    game.onTick(2000, "lluvia", {juego.agregarFajoDeDineroAVelocidad(500)})
-    game.onTick(8000, "lluvia", {juego.agregarFajoDoradoAVelocidad(100)})
+    juego.empezarLluviaDeDinero(500, 100)
   }
 }
 
 
-
-
-
 object juego {
-
   var dificultad = dificultadFacil
+  const billetesNormales = []
+  const billetesDorados = []
+  const camaras = []
+  method billetesNormales() = billetesNormales
+  method billetesDorados() = billetesDorados
+  method camaras() = camaras
 
   method teclado() {
     keyboard.enter().onPressDo({ self.iniciar() })
@@ -45,8 +39,7 @@ object juego {
     keyboard.left().onPressDo({moretti.izquierda()})
     keyboard.down().onPressDo({moretti.bajar()})
     keyboard.num1().onPressDo({self.ponerDificultadFacil()})
-    keyboard.num2().onPressDo({self.ponerDificultadDificil()})
-    
+    keyboard.num2().onPressDo({self.ponerDificultadDificil()})    
   }
 
   method musica(){
@@ -71,40 +64,58 @@ object juego {
     game.addVisual(invisible3)
     game.addVisual(invisible4)
     game.addVisual(contador)
+    self.agregarObjetosInicio()  
+  }
+
+  method agregarObjetosInicio(){
+    /*5.times({
+    billetesNormales.add(new FajoDeDinero());
+    billetesDorados.add(new FajoDeDineroEspecial());
+    camaras.add(new Camara());
+    })
+   
+  */
+    billetesNormales.add(new FajoDeDinero())
+    billetesDorados.add(new FajoDeDineroEspecial())
+    camaras.add(new Camara())
+    
+    billetesNormales.add(new FajoDeDinero())
+    billetesDorados.add(new FajoDeDineroEspecial())
+    camaras.add(new Camara())
+    
+    billetesNormales.add(new FajoDeDinero())
+    billetesDorados.add(new FajoDeDineroEspecial())
+    camaras.add(new Camara())
+    
+    billetesNormales.add(new FajoDeDinero())
+    billetesDorados.add(new FajoDeDineroEspecial())
+    camaras.add(new Camara())
+
+    billetesNormales.add(new FajoDeDinero())
+    billetesDorados.add(new FajoDeDineroEspecial())
+    camaras.add(new Camara())
+    
+    camaras.forEach({c=> game.addVisual(c)})
+    billetesDorados.forEach({d=> game.addVisual(d)})
+    billetesNormales.forEach({n=> game.addVisual(n)})
+
     dificultad.billetesRatio()
     dificultad.camarasRatio()
-    
   }
-  /*
-  method empezarLluviaDeCamaras() {
-    game.onTick(2500, "lluvia", {self.agregarCamaraDeVideo()})
-  }
-  method empezarLluviaDeDinero(){
-    game.onTick(2300, "lluvia", {self.agregarFajoDeDineroAVelocidad(2000)})
-    game.onTick(10000, "lluvia", {self.agregarFajoDoradoAVelocidad()})
-  }
-  */
-  method agregarCamaraDeVideoAVelocidad(unaVelocidad) {
-    const camara = new Camara()
-    game.addVisual(camara)
-    camara.iniciar(unaVelocidad)
-    camara.eliminarsePorTiempo()
+ 
+  method empezarLluviaDeCamaras(tiempoCamara) {
+    var timeInicio = tiempoCamara
+    camaras.forEach({ c => c.iniciar(timeInicio); timeInicio += 1000 })
   }
 
-  method agregarFajoDeDineroAVelocidad(unaVelocidad) {
-    const dinero = new FajoDeDinero()
-    game.addVisual(dinero)
-    dinero.iniciar(unaVelocidad)
-    dinero.eliminarsePorTiempo()
-  }
+  method empezarLluviaDeDinero(tiempoDineroNomral, tiempoDineroDorado){
+    var timeInicio = tiempoDineroNomral
+    var timeInicioDorado = tiempoDineroDorado
 
-  method agregarFajoDoradoAVelocidad(unaVelocidad) {
-    const dineroEspecial = new FajoDeDineroEspecial()
-    game.addVisual(dineroEspecial)
-    dineroEspecial.iniciar(unaVelocidad)
-    dineroEspecial.eliminarsePorTiempo()
+    billetesNormales.forEach({ bn => bn.iniciar(timeInicio); timeInicio += 1000 })
+    billetesDorados.forEach({ bd => bd.iniciar(timeInicioDorado); timeInicioDorado += 1000 })  
   }
-
+  
   method terminarJuego(){
     if(moretti.ganar()){
       game.stop()
@@ -121,72 +132,6 @@ object juego {
   }
   
 }
-
-class FajoDeDinero {
-  var property position = game.at(0.randomUpTo(150).truncate(0), 80)
-  method image() = "plataChica.png" 
-  method iniciar(unaVelocidad) {
-  game.onTick(unaVelocidad, "moverse", {self.movimiento()})
-  } 
-  method movimiento() {
-    position = game.at(position.x(), position.y() - 5)
-    }
-  method serRecogido() {
-    moretti.recogerDinero(self)
-    self.eliminar()
-  }
-  method cantidadQueDa() = 1000
-
-  method eliminar(){
-    game.removeVisual(self)
-  }
-
-  method eliminarsePorTiempo(){
-  game.onTick(15000, "eliminarse", {self.eliminar()})
-  }
-
-  method sonidoRecoleccion(){
-    const sonido = game.sound("sonidoDinero.wav")
-    sonido.volume(0.05)
-    
-    game.sound("sonidoDinero.wav").play()
-  }
-}
-
-class FajoDeDineroEspecial inherits FajoDeDinero {
-   override method image() = "dorado.png"
-   override method cantidadQueDa() = super() * 5 
-}
-
-class Camara {
-  var property position = game.at(0.randomUpTo(150).truncate(0), 80) 
-  method image() = "camaraChica.png" 
-  method iniciar(unaVelocidad) {game.onTick(unaVelocidad, "moverse", {self.movimiento()})}
-  method movimiento() {
-    position = game.at(position.x(), position.y() - 7)
-  }
-
-
-  method serRecogido() {
-    moretti.recogerDinero(self)
-    self.eliminar()
-  }
-
-  method eliminar(){
-    game.removeVisual(self)
-  }
-
-  method cantidadQueDa() = - 500
-
-  method eliminarsePorTiempo(){
-  game.onTick(20000, "eliminarse", {self.eliminar()})
-  }
-
-  method sonidoRecoleccion(){
-    game.sound("sonidoCamara.wav").play()
-  }
-}
-
 object moretti {
     var dinero = 0
     var position = game.at(68, -1)
@@ -212,7 +157,6 @@ object moretti {
       position = position.down(3)
     }
 
-
     method recogerDinero(unFajo) {
       dinero += unFajo.cantidadQueDa().min(25000)
     }
@@ -226,7 +170,6 @@ object moretti {
 
 
 object invisible{
-
   method position(){
     return moretti.position().right(1)
   } 
@@ -234,21 +177,18 @@ object invisible{
 
 
 object invisible2{
-
   method position(){
   return moretti.position().left(1)
   } 
 }
 
 object invisible3{
-
   method position(){
     return moretti.position().right(2)
   } 
 }
 
 object invisible4{
-
   method position(){
     return moretti.position().left(2)
   } 
