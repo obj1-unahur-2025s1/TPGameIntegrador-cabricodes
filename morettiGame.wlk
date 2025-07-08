@@ -1,3 +1,4 @@
+
 import wollok.game.*
 import imagenes.*
 import objetosConGravedad.*
@@ -5,10 +6,10 @@ import objetosConGravedad.*
 
 object dificultadFacil{
   method camarasRatio(){
-    juego.empezarLluviaDeCamaras(600)
+    juego.empezarLluviaDeCamaras(1500)
   }
   method billetesRatio(){
-    juego.empezarLluviaDeDinero(2500, 8000)
+    juego.empezarLluviaDeDinero(1700, 1000)
   }
 }
 
@@ -54,6 +55,7 @@ object juego {
 
   method iniciar(){
 
+    musicaDelMenuPrincipal.pausar()
     self.musica()
     game.removeVisual(pantallaDeInicio)
     game.removeVisual(tutorial)
@@ -192,4 +194,44 @@ object invisible4{
   method position(){
     return moretti.position().left(2)
   } 
+}
+
+object invisible5{
+  method position(){
+    return moretti.position().right(3)
+  } 
+}
+
+object invisible6{
+  method position(){
+    return moretti.position().left(3)
+  } 
+}
+
+object invisible7{
+  method position(){
+    return moretti.position().up(1)
+  } 
+}
+
+object invisible8{
+  method position(){
+    return moretti.position().up(2)
+  } 
+}
+
+object musicaDelMenuPrincipal {
+
+const property musica =  game.sound("musicaDelMenu.mp3")
+
+    method configuracion() {
+       musica.play()
+       musica.volume(0.4)
+       musica.shouldLoop(true)
+    }
+
+    method pausar(){
+
+      musica.pause()
+    }
 }

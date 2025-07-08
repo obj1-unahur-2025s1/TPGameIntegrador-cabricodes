@@ -21,9 +21,8 @@ class ObjetoConGravedad{
        posiciony = 80
        posicionx = 0.randomUpTo(130).truncate(0);
     }
-    game.say(self, "posiciony" + posiciony.toString())
     position = game.at(posicionx, posiciony)
-  }
+  } 
   
   method serRecogido() {
     moretti.recogerDinero(self)
@@ -57,9 +56,9 @@ class FajoDeDineroEspecial inherits ObjetoConGravedad{
   override method movimientoEnEjeY() = 5
 }
 
-class Camara  inherits ObjetoConGravedad{
+class Camara inherits ObjetoConGravedad{
   override method image() = "camaraChica.png" 
-  override method cantidadQueDa() = 500
+  override method cantidadQueDa() = - 1000
   override method sonidoRecoleccion(){
     game.sound("sonidoCamara.wav").play()
   }

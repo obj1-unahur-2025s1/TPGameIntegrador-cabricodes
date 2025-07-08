@@ -1,7 +1,6 @@
 import wollok.game.*
 import morettiGame.*
 import imagenes.*
-import sonidos.*
 
 
 program morettiGame {
@@ -14,6 +13,7 @@ program morettiGame {
 	game.addVisual(dificultad2)
 	game.boardGround("canchita2.png")
 	game.cellSize(50)
+	musicaDelMenuPrincipal.configuracion()
 	juego.teclado()
 	game.start()
 	juego.terminarJuego()
@@ -39,6 +39,26 @@ program morettiGame {
 	})
 
 	game.onCollideDo(invisible4, {
+		elemento => elemento.serRecogido()
+					elemento.sonidoRecoleccion()
+	})
+
+	game.onCollideDo(invisible5,{
+		elemento => elemento.serRecogido()
+					elemento.sonidoRecoleccion()
+	})
+
+	game.onCollideDo(invisible6,{
+		elemento => elemento.serRecogido()
+					elemento.sonidoRecoleccion()
+	})
+
+	game.onCollideDo(invisible7,{
+		elemento => elemento.serRecogido()
+					elemento.sonidoRecoleccion()
+	})
+
+	game.onCollideDo(invisible8,{
 		elemento => elemento.serRecogido()
 					elemento.sonidoRecoleccion()
 	})
