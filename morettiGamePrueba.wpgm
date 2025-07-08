@@ -1,6 +1,8 @@
 import wollok.game.*
 import morettiGame.*
 import imagenes.*
+import sonidos.*
+
 
 program morettiGame {
 	game.title("Moretti y los dolares")
