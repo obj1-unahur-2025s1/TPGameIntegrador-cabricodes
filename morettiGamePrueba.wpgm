@@ -1,3 +1,4 @@
+import objetosConGravedad.*
 import wollok.game.*
 import morettiGame.*
 import imagenes.*
@@ -12,11 +13,19 @@ program morettiGame {
 	game.addVisual(volumen)
 	game.addVisual(dificultad2)
 	game.boardGround("canchita2.png")
+	game.addVisual(vida3) // agrega la vida 3 luego hay que sacar el visual cuandoi haga 
 	game.cellSize(50)
 	musicaDelMenuPrincipal.configuracion()
 	juego.teclado()
 	game.start()
 	juego.terminarJuego()
+
+
+
+/////////////////////////////////////////////////////////
+	game.onCollideDo(moretti, {
+		camara => camara.restarVida()
+	})
 
 	game.onCollideDo(moretti, {
 		elemento => elemento.serRecogido()
@@ -62,4 +71,6 @@ program morettiGame {
 		elemento => elemento.serRecogido()
 					elemento.sonidoRecoleccion()
 	})
+
+
 }

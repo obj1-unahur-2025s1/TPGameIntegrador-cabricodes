@@ -25,12 +25,14 @@ object dificultadDificil{
 
 object juego {
   var dificultad = dificultadFacil
+ //  var  vidaActual = vida3 //
   const billetesNormales = []
   const billetesDorados = []
   const camaras = []
   method billetesNormales() = billetesNormales
   method billetesDorados() = billetesDorados
   method camaras() = camaras
+ //  method vidaActual() = vidaActual //
 
   method teclado() {
     keyboard.enter().onPressDo({ self.iniciar() })
@@ -117,6 +119,8 @@ object juego {
     billetesNormales.forEach({ bn => bn.iniciar(timeInicio); timeInicio += 1000 })
     billetesDorados.forEach({ bd => bd.iniciar(timeInicioDorado); timeInicioDorado += 1000 })  
   }
+
+
   
   method terminarJuego(){
     if(moretti.ganar()){
@@ -168,6 +172,9 @@ object moretti {
     method ganar(){
       return dinero == 25000
     }
+
+    
+
 }
 
 

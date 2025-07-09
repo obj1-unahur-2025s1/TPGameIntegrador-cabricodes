@@ -62,5 +62,12 @@ class Camara inherits ObjetoConGravedad{
   override method sonidoRecoleccion(){
     game.sound("sonidoCamara.wav").play()
   }
+
+  method restarVida() {
+    //////////////////////////////////////////
+  }
+
+
+
   override method movimientoEnEjeY() = 3
 }

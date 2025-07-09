@@ -15,6 +15,40 @@ const position = (game.origin())
 	}
 
 }
+//////////////////////////////////////////////////////////
+object vida3 {
+  const position = (game.at(x, y)) // chicos x favor centrenlo que no me corre el game y no se donde va 
+  method image(){
+    return "vida 3.png"
+  }                   
+
+  method position(){
+    return position
+  }       
+}
+
+object vida2 {
+  const position = (game.at(x, y)) // chicos x favor centrenlo que no me corre el game y no se donde va 
+  method image(){
+    return "vida 2.png"
+  }                   
+
+  method position(){
+    return position
+  }       
+}
+
+object vida1 {
+  const position = (game.at(x, y)) // chicos x favor centrenlo que no me corre el game y no se donde va 
+  method image(){
+    return "vida 1.png"
+  }                   
+
+  method position(){
+    return position
+  }       
+}
+
 
 object final{
 
@@ -32,7 +66,7 @@ object tutorial {
     const position = game.at(67, 19)
 
     method image() = "tutorial.png"
-    method position() =position  
+    method position() = position  
 }
 
 object pantallaDeInicio {
