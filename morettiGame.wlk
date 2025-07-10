@@ -63,13 +63,15 @@ object juego {
     game.removeVisual(tutorial)
     game.removeVisual(dificultad2)
     game.addVisual(corazon1)
-    game.addVisual(corazon2)
-    game.addVisual(corazon3)
     game.addVisualCharacter(moretti)
     game.addVisual(invisible)
     game.addVisual(invisible2)
     game.addVisual(invisible3)
     game.addVisual(invisible4)
+    game.addVisual(invisible5)
+    game.addVisual(invisible6)
+    game.addVisual(invisible7)
+    game.addVisual(invisible8)
     game.addVisual(contador)
     self.agregarObjetosInicio()  
   }
@@ -142,6 +144,7 @@ object juego {
   
 }
 object moretti {
+    var vidas = 3
     var dinero = 0
     var position = game.at(68, -1)
     method position() = position
@@ -174,6 +177,14 @@ object moretti {
 
     method ganar(){
       return dinero == 25000
+    }
+
+    method perderVida(){
+      vidas -= 1.max(0)
+    }
+
+    method vidas(){
+      return vidas
     }
 
     

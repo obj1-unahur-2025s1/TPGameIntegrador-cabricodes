@@ -2,12 +2,14 @@ import morettiGame.*
 
 object contador{
 
-//	const position = game.at(game.height(), game.width() - 1)
+var plataActual = moretti.dinero() 
 
 const position = (game.origin())
-  method image(){
-		return "contadorEn0.png"
-	}
+  
+    method text(){
+        return 
+            "Dinero: $" + plataActual
+    }
 
 	method position(){
     return position
@@ -18,18 +20,16 @@ const position = (game.origin())
 //////////////////////////////////////////////////////////
 
 object corazon1  {
-   var property position = game.at(14, 90)
-   method image() = "vidaNueva1.png"
-}
+   
+   var vidasActuales = moretti.vidas()
+   var imagenActual = "vidas3.png"
+   const property position = game.at(14, 90)
 
-object corazon2  {
-   var property position = game.at(24, 90)
-   method image() = "vidaNueva2.png"
-}
+   method image(){
 
-object corazon3  {
-   var property position = game.at(33, 90)
-   method image() = "vidaNueva3.png"
+    imagenActual = "vidas" + vidasActuales + ".png"
+
+   }
 }
 
 
