@@ -6,10 +6,10 @@ import objetosConGravedad.*
 
 object dificultadFacil{
   method camarasRatio(){
-    juego.empezarLluviaDeCamaras(1500)
+    juego.empezarLluviaDeCamaras(1200)
   }
   method billetesRatio(){
-    juego.empezarLluviaDeDinero(1700, 1000)
+    juego.empezarLluviaDeDinero(800, 500)
   }
 }
 
@@ -24,19 +24,18 @@ object dificultadDificil{
 
 
 object juego {
+  
   var dificultad = dificultadFacil
- //  var  vidaActual = vida3 //
   const billetesNormales = []
   const billetesDorados = []
   const camaras = []
   method billetesNormales() = billetesNormales
   method billetesDorados() = billetesDorados
   method camaras() = camaras
- //  method vidaActual() = vidaActual //
+
 
   method teclado() {
     keyboard.enter().onPressDo({ self.iniciar() })
-    keyboard.space().onPressDo({game.say(moretti, "tengo" +  moretti.dinero().toString() )})
     keyboard.up().onPressDo({moretti.subir()})
     keyboard.right().onPressDo({moretti.derecha()})
     keyboard.left().onPressDo({moretti.izquierda()})
@@ -62,7 +61,6 @@ object juego {
     game.removeVisual(pantallaDeInicio)
     game.removeVisual(tutorial)
     game.removeVisual(dificultad2)
-    game.addVisual(corazon1)
     game.addVisualCharacter(moretti)
     game.addVisual(invisible)
     game.addVisual(invisible2)
@@ -143,7 +141,6 @@ object juego {
   
 }
 object moretti {
-    var vidas = 3
     var dinero = 0
     var position = game.at(68, -1)
     method position() = position
@@ -172,22 +169,10 @@ object moretti {
       dinero += unFajo.cantidadQueDa().min(25000)
     }
     method image() = "morettiNuevo.png" 
-    method comentario() = game.say(self, dinero.toString())
 
     method ganar(){
       return dinero == 25000
     }
-
-    method perderVida(){
-      vidas -= 1.max(0)
-    }
-
-    method vidas(){
-      return vidas
-    }
-
-    
-
 }
 
 
@@ -251,7 +236,6 @@ const property musica =  game.sound("musicaDelMenu.mp3")
     }
 
     method pausar(){
-
       musica.pause()
     }
 }

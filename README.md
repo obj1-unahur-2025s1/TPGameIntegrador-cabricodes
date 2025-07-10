@@ -8,9 +8,9 @@ MORETTI GAME
 
 ## Capturas
 
-![capturas](assets/captura2.PNG)
-![capturas](assets/captura1.PNG)
-![capturas](assets/captura3.PNG)
+![capturas](assets/cap1.PNG)
+![capturas](assets/cap2.PNG)
+
 
 
 

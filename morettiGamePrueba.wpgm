@@ -13,6 +13,7 @@ program morettiGame {
 	game.addVisual(pantallaDeInicio)
 	game.addVisual(tutorial)
 	game.addVisual(volumenMute)
+	game.addVisual(volumenUnmute)
 	game.addVisual(dificultad2)
 	game.boardGround("canchaSanLorenzo.png")
 	

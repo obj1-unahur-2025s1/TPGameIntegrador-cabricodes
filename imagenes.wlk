@@ -19,16 +19,6 @@ const position = (game.origin())
 }
 //////////////////////////////////////////////////////////
 
-object corazon1  {
-   
-   
-   var property image = "vidas3.png"
-   const property position = game.at(14, 90)
-
-}
-
-
-
 
 object final{
 
@@ -65,7 +55,7 @@ object volumenMute{
 }
 
 object volumenUnmute {
-    const position = game.at(3, 90)
+    const position = game.at(12, 90)
 
     method image() = "musicaUnmute.png"
     method position() = position  
