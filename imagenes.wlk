@@ -16,38 +16,23 @@ const position = (game.origin())
 
 }
 //////////////////////////////////////////////////////////
-object vida3 {
-  const position = (game.at(x, y)) // chicos x favor centrenlo que no me corre el game y no se donde va 
-  method image(){
-    return "vida 3.png"
-  }                   
 
-  method position(){
-    return position
-  }       
+object corazon1  {
+   var property position = game.at(14, 90)
+   method image() = "vidaNueva1.png"
 }
 
-object vida2 {
-  const position = (game.at(x, y)) // chicos x favor centrenlo que no me corre el game y no se donde va 
-  method image(){
-    return "vida 2.png"
-  }                   
-
-  method position(){
-    return position
-  }       
+object corazon2  {
+   var property position = game.at(24, 90)
+   method image() = "vidaNueva2.png"
 }
 
-object vida1 {
-  const position = (game.at(x, y)) // chicos x favor centrenlo que no me corre el game y no se donde va 
-  method image(){
-    return "vida 1.png"
-  }                   
-
-  method position(){
-    return position
-  }       
+object corazon3  {
+   var property position = game.at(33, 90)
+   method image() = "vidaNueva3.png"
 }
+
+
 
 
 object final{
@@ -77,11 +62,18 @@ object pantallaDeInicio {
 
 }
 
-object volumen{
-     const position = game.at(-5, 80)
+object volumenMute{
+     const position = game.at(3, 90)
 
-  method image() = "volumen.png"
+  method image() = "musicaMute.png"
   method position() = position
+}
+
+object volumenUnmute {
+    const position = game.at(3, 90)
+
+    method image() = "musicaUnmute.png"
+    method position() = position  
 }
 
 object dificultad2{

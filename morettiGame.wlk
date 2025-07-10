@@ -62,6 +62,9 @@ object juego {
     game.removeVisual(pantallaDeInicio)
     game.removeVisual(tutorial)
     game.removeVisual(dificultad2)
+    game.addVisual(corazon1)
+    game.addVisual(corazon2)
+    game.addVisual(corazon3)
     game.addVisualCharacter(moretti)
     game.addVisual(invisible)
     game.addVisual(invisible2)
@@ -166,7 +169,7 @@ object moretti {
     method recogerDinero(unFajo) {
       dinero += unFajo.cantidadQueDa().min(25000)
     }
-    method image() = "morettito.png" 
+    method image() = "morettiNuevo.png" 
     method comentario() = game.say(self, dinero.toString())
 
     method ganar(){

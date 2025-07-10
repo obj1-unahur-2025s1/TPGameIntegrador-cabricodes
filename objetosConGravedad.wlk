@@ -35,7 +35,7 @@ class ObjetoConGravedad{
 
 }
 class FajoDeDinero inherits ObjetoConGravedad{
-  override method image() = "plataChica.png" 
+  override method image() = "plataVerde.png" 
   override method cantidadQueDa() = 1000 
   override method sonidoRecoleccion() {
     const sonido = game.sound("sonidoDinero.wav")
@@ -46,7 +46,7 @@ class FajoDeDinero inherits ObjetoConGravedad{
 }
 
 class FajoDeDineroEspecial inherits ObjetoConGravedad{
-   override method image() = "dorado.png"
+   override method image() = "plataDorada.png"
    override method cantidadQueDa() = 5000
    override method sonidoRecoleccion() {
     const sonido = game.sound("sonidoDinero.wav")
@@ -57,7 +57,7 @@ class FajoDeDineroEspecial inherits ObjetoConGravedad{
 }
 
 class Camara inherits ObjetoConGravedad{
-  override method image() = "camaraChica.png" 
+  override method image() = "camarita.png" 
   override method cantidadQueDa() = - 1000
   override method sonidoRecoleccion(){
     game.sound("sonidoCamara.wav").play()
@@ -71,3 +71,5 @@ class Camara inherits ObjetoConGravedad{
 
   override method movimientoEnEjeY() = 3
 }
+
+
