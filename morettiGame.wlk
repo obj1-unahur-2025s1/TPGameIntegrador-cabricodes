@@ -72,7 +72,6 @@ object juego {
     game.addVisual(invisible6)
     game.addVisual(invisible7)
     game.addVisual(invisible8)
-    game.addVisual(contador)
     self.agregarObjetosInicio()  
   }
 

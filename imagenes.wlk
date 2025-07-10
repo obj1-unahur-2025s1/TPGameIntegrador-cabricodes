@@ -21,15 +21,10 @@ const position = (game.origin())
 
 object corazon1  {
    
-   var vidasActuales = moretti.vidas()
-   var imagenActual = "vidas3.png"
+   
+   var property image = "vidas3.png"
    const property position = game.at(14, 90)
 
-   method image(){
-
-    imagenActual = "vidas" + vidasActuales + ".png"
-
-   }
 }
 
 
